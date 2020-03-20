@@ -1,11 +1,16 @@
 {
   "name": "mafe",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "lib/mafe.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-lib": "vue-cli-service build --target lib --name mafe --dest lib packages/index.js  && npm run build-theme",
+    "build-theme": "gulp build --gulpfile packages/styles/gulpfile.js",
+    "docs:dev": "vuepress dev docs",
+		"docs:build": "vuepress build docs"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -22,6 +27,18 @@
     "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "gulp": "^4.0.2",
+		"gulp-autoprefixer": "^6.1.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-clean-css": "^4.2.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-cssmin": "^0.2.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-rev": "^9.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.2",
+		"vuepress": "^1.3.1"
   }
 }
